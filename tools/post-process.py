@@ -58,7 +58,7 @@ def main(argv):
             if kind == "executable":
                 if host_os == "macos":
                     codesign_args += ["-i", identity]
-                if input_entitlements_path is not None and host_os in {"ios", "tvos"}:
+                if input_entitlements_path is not None and host_os in {"ios", "tvos", "macos"}:
                     codesign_args += ["--entitlements", input_entitlements_path]
             subprocess.run(codesign + codesign_args + [intermediate_path], **run_kwargs)
     except subprocess.CalledProcessError as e:

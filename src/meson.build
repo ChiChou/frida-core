@@ -208,7 +208,7 @@ if have_local_backend
         'darwin' / 'frida-helper.xcent',
       ],
       output: helper_name,
-      command: post_process_helper,
+      command: post_process_helper  + ['@INPUT1@'],
       build_by_default: true,
       install: get_option('assets') == 'installed',
       install_dir: asset_dir,
